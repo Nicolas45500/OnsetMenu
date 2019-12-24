@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<script>
+			(function(obj)
+			{
+				ue.game = {};
+				ue.game.callevent = function(name, ...args)
+				{
+					if (typeof name != "string") {
+						return;
+					}
+					if (args.length == 0) {
+						obj.callevent(name, "")
+					}
+					else {
+						let params = []
+						for (let i = 0; i < args.length; i++) {
+							params[i] = args[i];
+						}
+						obj.callevent(name, JSON.stringify(params));
+					}
+				};
+			})(ue.game);
+			CallEvent = ue.game.callevent;
+		</script>
+    <meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="http://asset/NicoMenu/client/gui/css/index.css"/>
+  </head>
+	  <body>
+			<img class="boxMenuFond" id="boxMenuFond" src="http://asset/NicoMenu/client/gui/img/1.png">
+				<div id="menu" style='display:block;'>
+					<a href='javascript: FV()'><p class="textV"><b>Vehicle</b></p></a>
+					<a href='javascript: FJ()'><p class="textPlayer"><b>Player</b></p></a>
+					<a href='javascript: FT()'><p class="textTéléport"><b>Teleport</b></p></a>
+					<a href='javascript: FW()'><p class="textWeapon"><b>Weapon</b></p></a>
+					<a href='javascript: FA()'><p class="textAnimation"><b>Animation</b></p></a>
+				</div>
+				  
+			<div class="menuBox" id="menuBox" style='display:none;'>
+				<a  onclick="CallEvent('SetVehicleDamage');" ><p class="textPlayerSetVehicleDamage"><b>Increase damage</b></p></a>
+				<a  onclick="CallEvent('DestroyVehicle');" ><p class="textPlayerDestroyVehicle"><b>Delete vehicle</b></p></a>
+				<a  onclick="CallEvent('SwichPlacee');" ><p class="textPlayerSwichPlacee"><b>Swich seat</b></p></a>
+				<a  onclick="CallEvent('KillEngine');" ><p class="textPlayerKillEngine"><b>Kill engine</b></p></a>
+				<a  onclick="CallEvent('ReturVehicle');" ><p class="textPlayerReturVehicle"><b>Flip vehiucle</b></p></a>
+				<a  onclick="CallEvent('FixEngineVehicle');" ><p class="textPlayerFixEngineVehicle"><b>Fix engine</b></p></a>
+				<a  onclick="CallEvent('RepairVehicle');" ><p class="textPlayerRepairVehicle"><b>Repair damage</b></p></a>
+				<input id="spawnV" type="submit" name="spawnV" value="Spawn vehicle" class="spawnV" onclick="myFunction" />
+			<script>
+				var valueV = 0;
+				function Ver() {
+				var valueV = document.getElementById("listV").value;
+				document.getElementById("spawnV").onclick = function() {changeV()};
+
+				function changeV() {
+					for (var i = 0; i < 26; i++) {
+					
+						if(valueV == 1){
+							document.getElementById('spawnV').setAttribute( "onClick", "CallEvent('1');" );
+						}else if(valueV == i){
+							document.getElementById('spawnV').setAttribute( "onClick", "CallEvent('" + i + "');" );
+						}
+					}
+				}
+					if(valueV == 1){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Sedan1.jpg";
+					}else if(valueV == 2){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Sedan2.jpg";
+					}else if(valueV == 3){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Sedan3.jpg";
+					}else if(valueV == 4){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Taxi.jpg";
+					}else if(valueV == 5){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Police.jpg";
+					}else if(valueV == 6){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Nascar.jpg";
+					}else if(valueV == 7){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Truck.jpg";
+					}else if(valueV == 8){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Ambulance.jpg";
+					}else if(valueV == 9){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/GarbageTruck.jpg";
+					}else if(valueV == 10){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Helicopter.jpg";
+					}else if(valueV == 11){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Coupe.jpg";
+					}else if(valueV == 12){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Rally.jpg";
+					}else if(valueV == 13){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Heavy1.jpg";
+					}else if(valueV == 14){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Heavy2.jpg";
+					}else if(valueV == 15){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Heavy3.jpg";
+					}else if(valueV == 16){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Heavy4.jpg";
+					}else if(valueV == 17){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/CargoTruck1.jpg";
+					}else if(valueV == 18){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/CargoTruck2.jpg";
+					}else if(valueV == 19){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/OneColor.jpg";
+					}else if(valueV == 20){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/HelicopterOneColor.jpg";
+					}else if(valueV == 21){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/Military1.jpg";
+					}else if(valueV == 22){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/LightCargo1.jpg";
+					}else if(valueV == 23){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/LightCargo2.jpg";
+					}else if(valueV == 24){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/ArmoredTruck.png";
+					}else if(valueV == 25){
+						document.getElementById("imgV").src = "http://asset/NicoMenu/client/gui/img/SedanClassic.png";
+					}
+				}	
+			</script>
+			<img  id="imgV" class="imgV" src="http://asset/NicoMenu/client/gui/img/Sedan1.jpg">
+				<form>
+					<select  id="listV" class="listV" name="listV" multiple="yes" size="1" onclick="Ver();" >
+						<option value="1" selected>Sedan(1)</option>
+						<option value="2">Sedan(2)</option>
+						<option value="3">Sedan(3)</option>
+						<option value="4">Taxi</option>
+						<option value="5">Police</option>
+						<option value="6">Nascar</option>	
+						<option value="7">Truck</option>
+						<option value="8">Ambulance</option>
+						<option value="9">Garbage_Truck</option>
+						<option value="10">Helicopter</option>
+						<option value="11">Coupe</option>
+						<option value="12">Rally</option>
+						<option value="13">Heavy(1)</option>
+						<option value="14">Heavy(2)</option>
+						<option value="15">Heavy(3)</option>
+						<option value="16">Heavy(4)</option>
+						<option value="17">Cargo_Truck(1)</option>
+						<option value="18">Cargo_Truck(2)</option>
+						<option value="19">OneColor</option>
+						<option value="20">Helicopter_OneColor</option>
+						<option value="21">Military_01</option>
+						<option value="22">Light_Cargo(1)</option>
+						<option value="23">Light_Cargo(2)</option>
+						<option value="24">ArmoredTruck</option>
+						<option value="25">Sedan_Classic</option>
+					</select>
+				</form>
+			<div>
+				<form>
+					<select  id="listVColor" class="listVColor" name="listVColor" multiple="yes" size="1">
+						<option onclick="CallEvent('ColorV1');" id="Color1" style="background-color:#F10D0D;" value="1" class="ColorRvb" selected>RED</option>
+						<option onclick="CallEvent('ColorV2');" style="background-color:#EE9A10;" value="2" class="ColorRvb">ORANGE</option>
+						<option onclick="CallEvent('ColorV3');" style="background-color:#F0FF00;" value="3" class="ColorRvb">YELLOW</option>
+						<option onclick="CallEvent('ColorV4');"	style="background-color:#66E911;" value="4" class="ColorRvb">GREEN</option>
+						<option onclick="CallEvent('ColorV5');" style="background-color:#11E9A8;" value="5" class="ColorRvb">SLIME GREEN</option>
+						<option onclick="CallEvent('ColorV6');" style="background-color:#0087FF;" value="6" class="ColorRvb">BLUE</option>	
+						<option onclick="CallEvent('ColorV7');" style="background-color:#001BFF;" value="7" class="ColorRvb">DARK BLUE</option>
+						<option onclick="CallEvent('ColorV8');" style="background-color:#8C42FC;" value="8" class="ColorRvb">PURPLE</option>
+						<option onclick="CallEvent('ColorV9');" style="background-color:#5513BA;" value="9" class="ColorRvb">DARK PURPLE</option>
+						<option onclick="CallEvent('ColorV10');" style="background-color:#FF41BA;" value="10" class="ColorRvb">PINK</option>
+						<option onclick="CallEvent('ColorV11');" style="background-color:#FF00EC;" value="11" class="ColorRvb">DARK PINK</option>
+						<option onclick="CallEvent('ColorV12');" style="background-color:#A5A5A5;" value="12" class="ColorRvb">GREY</option>
+						<option onclick="CallEvent('ColorV13');" style="background-color:#565555;" value="13" class="ColorRvb">DARK GREY</option>
+						<option onclick="CallEvent('ColorV14')" style="background-color:#1B1F1B;" value="14" class="ColorRvb">BLACK</option>
+						<option onclick="CallEvent('ColorV15')" style="background-color:#1D1C1C;" style="background-color:#000000;" value="15" class="ColorRvb">DARK BLACK</option>
+						<option onclick="CallEvent('ColorV16')" style="background-color:#FFFFFF;" value="16" class="ColorRvb">WHITE</option>
+						<option onclick="CallEvent('ColorV17')" style="background-color:#E3DFDF;" value="17" class="ColorRvb">DARK WHITE</option>
+					</select>
+				</form>
+			</div>
+			</div>
+			<div id="menuBox2" class="menuBox2" style='display:none;'>
+				<a onclick="CallEvent('heal');"><p class="textPlayerinvHeal"><b>Give me heal</b></p></a>
+				<a onclick="CallEvent('armor');"><p class="textPlayerArmor"><b>Give me armor</b></p></a>
+						
+				<a  onclick="CallEvent('ArmorHurt');" ><p class="textPlayerArmorHurt"><b>Make armor hurt</b></p></a>
+				<a  onclick="CallEvent('ArmorRemove');" ><p class="textArmorRemove"><b>Remove me armor</b></p></a>
+						
+				<a  onclick="CallEvent('hurt');" ><p class="textPlayerHurt"><b>Make me hurt</b></p></a>
+				<a  onclick="CallEvent('Kill');" ><p class="textPlayerKill"><b>Kill yourself</b></p></a>
+			</div>
+				  
+			<script>
+				var valueT = 0;
+				function TR() {
+				var valueT = document.getElementById("listT").value;
+				document.getElementById("spawnT").onclick = function() {changeT()};
+				function changeT() {
+					if(valueT == 1){
+						document.getElementById('spawnT').setAttribute( "onClick", "CallEvent('T1');" );
+					}else if(valueT == 2){
+						document.getElementById('spawnT').setAttribute( "onClick", "CallEvent('T2');" );
+					}else if(valueT == 3){
+						document.getElementById('spawnT').setAttribute( "onClick", "CallEvent('T3');" );
+					}else if(valueT == 4){
+						document.getElementById('spawnT').setAttribute( "onClick", "CallEvent('T4');" );
+					}else if(valueT == 5){
+						document.getElementById('spawnT').setAttribute( "onClick", "CallEvent('T5');" );
+					}else if(valueT == 6){
+						document.getElementById('spawnT').setAttribute( "onClick", "CallEvent('T6');" );
+					}else if(valueT == 7){
+						document.getElementById('spawnT').setAttribute( "onClick", "CallEvent('T7');" );
+					}else if(valueT == 8){
+						document.getElementById('spawnT').setAttribute( "onClick", "CallEvent('T8');" );
+					}else if(valueT == 9){
+						document.getElementById('spawnT').setAttribute( "onClick", "CallEvent('T9');" );
+					}
+				}
+							
+					if(valueT == 1){
+						document.getElementById("imgT").src = "img/UpGas.jpg";
+					}else if(valueT == 2){
+						document.getElementById("imgT").src = "img/aiport.png";
+					}else if(valueT == 3){
+						document.getElementById("imgT").src = "img/island.png";
+					}else if(valueT == 4){
+						document.getElementById("imgT").src = "img/town.png";
+					}else if(valueT == 5){
+						document.getElementById("imgT").src = "img/caravan.png";
+					}else if(valueT == 6){
+						document.getElementById("imgT").src = "img/Bar.png";
+					}else if(valueT == 7){
+						document.getElementById("imgT").src = "img/city.png";
+					}else if(valueT == 8){
+						document.getElementById("imgT").src = "img/contenaire.png";
+					}else if(valueT == 9){
+						document.getElementById("imgT").src = "img/caravan2.png";
+					}
+				}
+			</script>
+			<div id="teleport" class="teleport" style='display:none;'>
+				<a onclick="CallEvent('SetSpawn');" ><p class="textPlayerSetSpawn"><b>Set spawn</b></p></a>
+				<a onclick="CallEvent('into');" ><p class="into"><b>Into the sky</b></p></a>
+				<img id="imgT" class="imgT" src="img/UpGas.jpg">
+				<input id="spawnT" type="submit" name="spawnT" value="teleport" class="spawnT" onclick="SpawnT"/>
+				<form>
+					<select  id="listT" class="listT" name="listT" multiple="yes" size="1" onclick="TR();">
+						<option value="1" selected>UpGas station</option>
+						<option value="2">Military base</option>
+						<option value="3">island</option>
+						<option value="4">town</option>
+						<option value="5">caravan</option>
+						<option value="6">bar</option>	
+						<option value="7">OnsetCity</option>
+						<option value="8">Port of goods</option>
+						<option value="9">caravan2</option>
+					</select>
+				</form>
+			</div>
+			<div id="weapon" class="weapon" style='display:none;'>
+				<p class="AttachPlayerParachute" onclick="CallEvent('AttachPlayerParachute');"><b>Take a parachute</b></p>
+				<div class="listWeapon" style="height:535px;width:237px;overflow-x:hidden;">
+					<a onclick="CallEvent('Wearpon1');" target="_blank" href="">
+						<img class="Pistol01" src="http://asset/NicoMenu/client/gui/img/Pistol01.jpg" alt="Pistol01">
+					</a>
+						
+					<a onclick="CallEvent('Wearpon2');" target="_blank" href="">
+						<img class="Pistol02" src="http://asset/NicoMenu/client/gui/img/Pistol02.jpg" alt="Pistol02">
+					</a>
+					<br />
+					<a onclick="CallEvent('Wearpon3');" target="_blank" href="">
+						<img class="Pistol03" src="http://asset/NicoMenu/client/gui/img/Pistol03.jpg" alt="Pistol03">
+					</a>
+						
+					<a onclick="CallEvent('Wearpon4');" target="_blank" href="">
+						<img class="Pistol04" src="http://asset/NicoMenu/client/gui/img/Pistol04.jpg" alt="Pistol04">
+					</a>
+					
+					<a onclick="CallEvent('Wearpon5');" target="_blank" href="">
+						<img class="Pistol05" src="http://asset/NicoMenu/client/gui/img/Shotgun01.jpg" alt="Shotgun01">
+					</a>
+						
+					<a  onclick="CallEvent('Wearpon6');" target="_blank" href="">
+						<img class="Pistol06" src="http://asset/NicoMenu/client/gui/img/Shotgun02.jpg" alt="Shotgun02">
+					</a>
+					<a  onclick="CallEvent('Wearpon7');" target="_blank" href="">
+						<img class="Pistol07" src="http://asset/NicoMenu/client/gui/img/SMG01.jpg" alt="SMG01">
+					</a>
+					<a  onclick="CallEvent('Wearpon8');" target="_blank" href="">
+						<img class="Pistol08" src="http://asset/NicoMenu/client/gui/img/SMG02.jpg" alt="SMG02">
+					</a>
+					<a  onclick="CallEvent('Wearpon9');" target="_blank" href="">
+						<img class="Pistol09" src="http://asset/NicoMenu/client/gui/img/SMG03.jpg" alt="SMG03">
+					</a>
+					<a  onclick="CallEvent('Wearpon10');" target="_blank" href="">
+						<img class="Pistol010" src="http://asset/NicoMenu/client/gui/img/Rifle01.jpg" alt="Rifle01">
+					</a>
+					<a  onclick="CallEvent('Wearpon11');" target="_blank" href="">
+						<img class="Pistol011" src="http://asset/NicoMenu/client/gui/img/Rifle02.jpg" alt="Rifle02">
+					</a>
+					<a  onclick="CallEvent('Wearpon12');" target="_blank" href="">
+						<img class="Pistol12" src="http://asset/NicoMenu/client/gui/img/Rifle02_Gold.jpg" alt="Rifle02_Gold">
+					</a>
+					<a  onclick="CallEvent('Wearpon13');" target="_blank" href="">
+						<img class="Pistol13" src="http://asset/NicoMenu/client/gui/img/Rifle03.jpg" alt="Rifle03">
+					</a>
+					<a  onclick="CallEvent('Wearpon14');" target="_blank" href="">
+						<img class="Pistol14" src="http://asset/NicoMenu/client/gui/img/Rifle04.jpg" alt="Rifle04">
+					</a>
+					<a  onclick="CallEvent('Wearpon15');" target="_blank" href="">
+						<img class="Pistol15" src="http://asset/NicoMenu/client/gui/img/Rifle05.jpg" alt="Rifle05">
+					</a>
+					<a  onclick="CallEvent('Wearpon16');" target="_blank" href="">
+						<img class="Pistol16" src="http://asset/NicoMenu/client/gui/img/Rifle06.jpg" alt="Rifle06">
+					</a>
+					<a  onclick="CallEvent('Wearpon17');" target="_blank" href="">
+						<img class="Pistol17" src="http://asset/NicoMenu/client/gui/img/Rifle07.jpg" alt="Rifle07">
+					</a>
+					<a  onclick="CallEvent('Wearpon18');" target="_blank" href="">
+						<img class="Pistol18" src="http://asset/NicoMenu/client/gui/img/Rifle08.jpg" alt="Rifle08">
+					</a>
+					<a  onclick="CallEvent('Wearpon19');" target="_blank" href="">
+						<img class="Pistol19" src="http://asset/NicoMenu/client/gui/img/Sniper01.jpg" alt="Sniper01">
+					</a>
+				</div>
+			</div>
+			</div>
+		<div id="Animation" style='display:none;' >
+			<form>
+				<input id="ASTOP" type="submit" name="ASTOP" value="STOP" class="ASTOP" onclick="CallEvent('A1')" />
+				<select  id="listA" class="listA" name="listA" multiple="yes" size="1" onclick="TA();">
+					<option class="Aclass" onclick="CallEvent('A1')" value="" id="A0" selected>STOP </option>
+					<option class="Aclass" onclick="CallEvent('A2')" value="" id="A1" selected>COMBINE </option>
+					<option class="Aclass" onclick="CallEvent('A3')" value="" id="A2" selected>PICKUP_LOWER </option>
+					<option class="Aclass" onclick="CallEvent('A4')" value="" id="A3" selected>PICKUP_MIDDLE </option>
+					<option class="Aclass" onclick="CallEvent('A5')" value="" id="A4" selected>PICKUP_UPPER </option>
+					<option class="Aclass" onclick="CallEvent('A6')" value="" id="A5" selected>HANDSHEAD_KNEEL </option>
+					<option class="Aclass" onclick="CallEvent('A7')" value="" id="A6" selected>HANDSHEAD_STAND </option>
+					<option class="Aclass" onclick="CallEvent('A8')" value="" id="A7" selected>HANDSUP_KNEEL </option>
+					<option class="Aclass" onclick="CallEvent('A9')" value="" id="A8" selected>HANDSUP_STAND </option>
+					<option class="Aclass" onclick="CallEvent('A10')" value="" id="A9" selected>ENTERCODE </option>
+					<option class="Aclass" onclick="CallEvent('A11')" value="" id="A10" selected>VOMIT </option>
+					<option class="Aclass" onclick="CallEvent('A12')" value="" id="A11" selected>CROSSARMS </option>
+					<option class="Aclass" onclick="CallEvent('A13')" value="" id="A12" selected>DABSAREGAY </option>
+					<option class="Aclass" onclick="CallEvent('A14')" value="" id="A13" selected>DONTKNOW </option>
+					<option class="Aclass" onclick="CallEvent('A15')" value="" id="A14" selected>DUSTOFF </option>
+					<option class="Aclass" onclick="CallEvent('A16')" value="" id="A15" selected>FACEPALM </option>
+					<option class="Aclass" onclick="CallEvent('A17')" value="" id="A16" selected>IDONTLISTEN </option>
+					<option class="Aclass" onclick="CallEvent('A18')" value="" id="A17" selected>FLEXX </option>
+					<option class="Aclass" onclick="CallEvent('A19')" value="" id="A18" selected>HALTSTOP </option>
+					<option class="Aclass" onclick="CallEvent('A20')" value="" id="A19" selected>INEAR_COMM </option>
+					<option class="Aclass" onclick="CallEvent('A21')" value="" id="A20" selected>ITSJUSTRIGHT </option>
+					<option class="Aclass" onclick="CallEvent('A22')" value="" id="A21" selected>FALLONKNEES </option>
+					<option class="Aclass" onclick="CallEvent('A23')" value="" id="A22" selected>KUNGFU </option>
+					<option class="Aclass" onclick="CallEvent('A24')" value="" id="A23" selected>CALLME </option>
+					<option class="Aclass" onclick="CallEvent('A25')" value="" id="A24" selected>SALUTE </option>
+					<option class="Aclass" onclick="CallEvent('A26')" value="" id="A25" selected>SHOOSH</option>
+					<option class="Aclass" onclick="CallEvent('A27')" value="" id="A26" selected>SLAPOWNASS </option>
+					<option class="Aclass" onclick="CallEvent('A28')" value="" id="A27" selected>SLAPOWNASS2 </option>
+					<option class="Aclass" onclick="CallEvent('A29')" value="" id="A28" selected>THROATSLIT </option>
+					<option class="Aclass" onclick="CallEvent('A30')" value="" id="A29" selected>THUMBSUP </option>
+					<option class="Aclass" onclick="CallEvent('A31')" value="" id="A30" selected>WAVE3 </option>
+					<option class="Aclass" onclick="CallEvent('A32')" value="" id="A31" selected>WIPEOFFSWEAT </option>
+					<option class="Aclass" onclick="CallEvent('A33')" value="" id="A32" selected>KICKDOOR </option>
+					<option class="Aclass" onclick="CallEvent('A34')" value="" id="A33" selected>LOCKDOOR </option>
+					<option class="Aclass" onclick="CallEvent('A35')" value="" id="A34" selected>CRAZYMAN </option>
+					<option class="Aclass" onclick="CallEvent('A36')" value="" id="A35" selected>DARKSOULS </option>
+					<option class="Aclass" onclick="CallEvent('A37')" value="" id="A36" selected>SMOKING </option>
+					<option class="Aclass" onclick="CallEvent('A38')" value="" id="A37" selected>CLAP </option>
+					<option class="Aclass" onclick="CallEvent('A39')" value="" id="A38" selected>SIT01 </option>
+					<option class="Aclass" onclick="CallEvent('A40')" value="" id="A39" selected>SIT02 </option>
+					<option class="Aclass" onclick="CallEvent('A41')" value="" id="A40" selected>SIT03 </option>
+					<option class="Aclass" onclick="CallEvent('A42')" value="" id="A41" selected>SIT04 </option>
+					<option class="Aclass" onclick="CallEvent('A43')" value="" id="A42" selected>SIT05 </option>
+					<option class="Aclass" onclick="CallEvent('A44')" value="" id="A43" selected>SIT06 </option>
+					<option class="Aclass" onclick="CallEvent('A45')" value="" id="A44" selected>SIT07</option>
+					<option class="Aclass" onclick="CallEvent('A46')" value="" id="A45" selected>LAY01 </option>
+					<option class="Aclass" onclick="CallEvent('A47')" value="" id="A46" selected>LAY02 </option>
+					<option class="Aclass" onclick="CallEvent('A48')" value="" id="A47" selected>LAY03 </option>
+					<option class="Aclass" onclick="CallEvent('A49')" value="" id="A48" selected>LAY04 </option>
+					<option class="Aclass" onclick="CallEvent('A50')" value="" id="A49" selected>LAY05 </option>
+					<option class="Aclass" onclick="CallEvent('A51')" value="" id="A50" selected>LAY06 </option>
+					<option class="Aclass" onclick="CallEvent('A52')" value="" id="A51" selected>LAY07 </option>
+					<option class="Aclass" onclick="CallEvent('A53')" value="" id="A52" selected>LAY08 </option>
+					<option class="Aclass" onclick="CallEvent('A54')" value="" id="A53" selected>LAY09 </option>
+					<option class="Aclass" onclick="CallEvent('A55')" value="" id="A54" selected>LAY10 </option>
+					<option class="Aclass" onclick="CallEvent('A56')" value="" id="A55" selected>LAY11 </option>
+					<option class="Aclass" onclick="CallEvent('A57')" value="" id="A56" selected>LAY12 </option>
+					<option class="Aclass"onclick="CallEvent('A58')" value="" id="A57" selected>LAY13</option>
+					<option class="Aclass" onclick="CallEvent('A59')" value="" id="A58" selected>LAY14 </option>
+					<option class="Aclass" onclick="CallEvent('A60')" value="" id="A59" selected>LAY15 </option>
+					<option class="Aclass" onclick="CallEvent('A61')" value="" id="A60" selected>LAY16 </option>
+					<option class="Aclass" onclick="CallEvent('A62')" value="" id="A61" selected>LAY17</option>
+					<option class="Aclass" onclick="CallEvent('A63')" value="" id="A62" selected>LAY18</option>
+					<option class="Aclass" onclick="CallEvent('A64')" value="" id="A63" selected>WAVE</option>
+					<option class="Aclass" onclick="CallEvent('A65')" value="" id="A64" selected>WAVE2 </option>
+					<option class="Aclass" onclick="CallEvent('A66')" value="" id="A65" selected>STRETCH</option>
+					<option class="Aclass" onclick="CallEvent('A67')" value="" id="A66" selected>BOW </option>
+					<option class="Aclass" onclick="CallEvent('A68')" value="" id="A67" selected>CALL_GUARDS</option>
+					<option class="Aclass" onclick="CallEvent('A69')" value="" id="A68" selected>CALL_SOMEONE </option>
+					<option class="Aclass" onclick="CallEvent('A70')" value="" id="A69" selected>CALL_SOMEONE2 </option>
+					<option class="Aclass" onclick="CallEvent('A71')" value="" id="A70" selected>CHECK_EQUIPMENT </option>
+					<option class="Aclass" onclick="CallEvent('A72')" value="" id="A71" selected>CHECK_EQUIPMENT2 </option>
+					<option class="Aclass" onclick="CallEvent('A73')" value="" id="A72" selected>CHECK_EQUIPMENT3 </option>
+					<option class="Aclass" onclick="CallEvent('A74')" value="" id="A73" selected>CLAP2 </option>
+					<option class="Aclass" onclick="CallEvent('A75')" value="" id="A74" selected>CLAP3</option>
+					<option class="Aclass" onclick="CallEvent('A76')" value="" id="A75" selected>CHEER</option>
+					<option class="Aclass" onclick="CallEvent('A77')" value="" id="A76" selected>DRUNK </option>
+					<option class="Aclass" onclick="CallEvent('A78')" value="" id="A77" selected>FIX_STUFF </option>
+					<option class="Aclass" onclick="CallEvent('A79')" value="" id="A78" selected>GET_HERE </option>
+					<option class="Aclass" onclick="CallEvent('A80')" value="" id="A79" selected>GET_HERE2</option>
+					<option class="Aclass" onclick="CallEvent('A81')" value="" id="A80" selected>GOAWAY </option>
+					<option class="Aclass" onclick="CallEvent('A82')" value="" id="A81" selected>LAUGH </option>
+					<option class="Aclass" onclick="CallEvent('A83')" value="" id="A82" selected>SALUTE2 </option>
+					<option class="Aclass" onclick="CallEvent('A84')" value="" id="A83" selected>THINKING </option>
+					<option class="Aclass" onclick="CallEvent('A85')" value="" id="A84" selected>THROW </option>
+					<option class="Aclass" onclick="CallEvent('A86')" value="" id="A85" selected>TRIUMPH </option>
+					<option class="Aclass" onclick="CallEvent('A87')" value="" id="A86" selected>WASH_WINDOWS </option>
+					<option class="Aclass" onclick="CallEvent('A88')" value="" id="A87" selected>WATCHING </option>
+					<option class="Aclass" onclick="CallEvent('A89')" value="" id="A88" selected>DANCE01 </option>
+					<option class="Aclass" onclick="CallEvent('A90')" value="" id="A89" selected>DANCE02</option>
+					<option class="Aclass" onclick="CallEvent('A91')" value="" id="A90" selected>DANCE03 </option>
+					<option class="Aclass" onclick="CallEvent('A92')" value="" id="A91" selected>DANCE04 </option>
+					<option class="Aclass" onclick="CallEvent('A93')" value="" id="A92" selected>DANCE05</option>
+					<option class="Aclass" onclick="CallEvent('A94')" value="" id="A93" selected>DANCE06</option>
+					<option class="Aclass" onclick="CallEvent('A95')" value="" id="A94" selected>DANCE07 </option>
+					<option class="Aclass" onclick="CallEvent('A96')" value="" id="A95" selected>DANCE08 </option>
+					<option class="Aclass" onclick="CallEvent('A97')" value="" id="A96" selected>DANCE09 </option>
+					<option class="Aclass" onclick="CallEvent('A98')" value="" id="A97" selected>DANCE10 </option>
+					<option class="Aclass" onclick="CallEvent('A99')" value="" id="A98" selected>DANCE11 </option>
+					<option class="Aclass" onclick="CallEvent('A100')" value="" id="A99" selected>DANCE12 </option>
+					<option class="Aclass" onclick="CallEvent('A101')" value="" id="A100" selected>DANCE13 </option>
+					<option class="Aclass" onclick="CallEvent('A102')" value="" id="A101" selected>DANCE14 </option>
+					<option class="Aclass" onclick="CallEvent('A103')" value="" id="A102" selected>DANCE15 </option>
+					<option class="Aclass" onclick="CallEvent('A104')" value="" id="A103" selected>DANCE16</option>
+					<option class="Aclass" onclick="CallEvent('A105')" value="" id="A104" selected>DANCE17</option>
+					<option class="Aclass" onclick="CallEvent('A106')" value="" id="A105" selected>DANCE18</option>
+					<option class="Aclass" onclick="CallEvent('A107')" value="" id="A106" selected>DANCE19</option>
+					<option class="Aclass" onclick="CallEvent('A108')" value="" id="A107" selected>DANCE20</option>
+					<option class="Aclass" onclick="CallEvent('A109')" value="" id="A108" selected>CUFF </option>
+					<option class="Aclass" onclick="CallEvent('A110')" value="" id="A109" selected>CUFF2 </option>
+					<option class="Aclass" onclick="CallEvent('A111')" value="" id="A110" selected>REVIVE </option>
+					<option class="Aclass" onclick="CallEvent('A112')" value="" id="A111" selected>PICKAXE_SWING </option>
+					<option class="Aclass" onclick="CallEvent('A113')" value="" id="A112" selected>CROSSARMS2 </option>
+					<option class="Aclass" onclick="CallEvent('A114')" value="" id="A113" selected>BARCLEAN01 </option>
+					<option class="Aclass" onclick="CallEvent('A115')" value="" id="A114" selected>BARCLEAN02 </option>
+					<option class="Aclass" onclick="CallEvent('A116')" value="" id="A115" selected>PHONE_PUTAWAY </option>
+					<option class="Aclass" onclick="CallEvent('A117')" value="" id="A116" selected>PHONE_TAKEOUT </option>
+					<option class="Aclass" onclick="CallEvent('A118')" value="" id="A117" selected>PHONE_TALKING01 </option>
+					<option class="Aclass" onclick="CallEvent('A119')" value="" id="A118" selected>PHONE_TALKING02 </option>
+					<option class="Aclass" onclick="CallEvent('A120')" value="" id="A119" selected>PHONE_TALKING03 </option>
+					<option class="Aclass" onclick="CallEvent('A121')" value="" id="A120" selected>DRINKING </option>
+					<option class="Aclass" onclick="CallEvent('A122')" value="" id="A121" selected>SHRUG </option>
+					<option class="Aclass" onclick="CallEvent('A123')" value="" id="A122" selected>SMOKING01 </option>
+					<option class="Aclass" onclick="CallEvent('A124')" value="" id="A123" selected>SMOKING02 </option>
+					<option class="Aclass" onclick="CallEvent('A125')" value="" id="A124" selected>SMOKING03 </option>
+					<option class="Aclass" onclick="CallEvent('A126')" value="" id="A125" selected>THINKING01 </option>
+					<option class="Aclass" onclick="CallEvent('A127')" value="" id="A126" selected>WALLLEAN01 </option>
+					<option class="Aclass" onclick="CallEvent('A128')" value="" id="A127" selected>WALLLEAN02 </option>
+					<option class="Aclass" onclick="CallEvent('A129')" value="" id="A128" selected>WALLLEAN03 </option>
+					<option class="Aclass" onclick="CallEvent('A130')" value="" id="A129" selected>WALLLEAN04 </option>
+					<option class="Aclass" onclick="CallEvent('A131')" value="" id="A130" selected>YAWN</option>
+					<option class="Aclass" onclick="CallEvent('A132')" value="" id="A131" selected>FISHING </option>
+					<option class="Aclass" onclick="CallEvent('A133')" value="" id="A132" selected>PHONE_TAKEOUT_HOLD </option>
+					<option class="Aclass" onclick="CallEvent('A134')" value="" id="A133" selected>PHONE_HOLD </option>
+					<option class="Aclass" onclick="CallEvent('A135')" value="" id="A134" selected>SHOUT01 </option>
+					<option class="Aclass" onclick="CallEvent('A136')" value="" id="A135" selected>CART_IDLE </option>
+					<option class="Aclass" onclick="CallEvent('A137')" value="" id="A136" selected>CARRY_IDLE </option>
+					<option class="Aclass" onclick="CallEvent('A138')" value="" id="A137" selected>CARRY_SETDOWN </option>
+					<option class="Aclass" onclick="CallEvent('A139')" value="" id="A138" selected>CARRY_SHOULDER_IDLE </option>
+					<option class="Aclass" onclick="CallEvent('A141')" value="" id="A139" selected>CARRY_SHOULDER_SETDOWN </option>
+					<option class="Aclass" onclick="CallEvent('A142')" value="" id="A140" selected>HANDSHAKE </option>
+					<option class="Aclass" onclick="CallEvent('A143')" value="" id="A141" selected>PUSHUP_START </option>
+					<option class="Aclass" onclick="CallEvent('A144')" value="" id="A142" selected>PUSHUP_IDLE </option>
+					<option class="Aclass" onclick="CallEvent('A145')" value="" id="A143" selected>PUSHUP_END </option>
+					<option class="Aclass" onclick="CallEvent('A146')" value="" id="A144" selected>SLAP01 </option>
+					<option class="Aclass" onclick="CallEvent('A147')" value="" id="A145" selected>AP01_REACT</option>		
+				</select>
+			</form>
+		</div>
+		<div id="p">
+		<p class="credit1">Developper : Nicolvian</p>
+		<p class="credit2" >Designer : LeMecQuiAPasDePseudo</p>
+		</div>
+		<script>
+		function FA(){
+			document.getElementById('boxMenuFond').src="http://asset/NicoMenu/client/gui/img/6.png";
+			document.getElementById('menu').style.display = 'none';
+			if(document.getElementById('Animation').style.display == 'none')
+			{
+			document.getElementById('Animation').style.display = 'block';
+			document.getElementById('p').style.display = 'none';
+			}
+		}
+					
+		function FW(){
+			document.getElementById('boxMenuFond').src="http://asset/NicoMenu/client/gui/img/4.png";
+			document.getElementById('menu').style.display = 'none';
+			if(document.getElementById('weapon').style.display == 'none')
+			{
+			document.getElementById('weapon').style.display = 'block';
+			document.getElementById('p').style.display = 'none';
+			}
+		}
+					
+		function FJ(){
+			document.getElementById('boxMenuFond').src="http://asset/NicoMenu/client/gui/img/2.png";
+			document.getElementById('menu').style.display = 'none';
+			if(document.getElementById('menuBox2').style.display == 'none')
+			{
+			document.getElementById('menuBox2').style.display = 'block';
+			document.getElementById('p').style.display = 'none';
+			}
+		}
+							
+		function FV(){
+			document.getElementById('boxMenuFond').src="http://asset/NicoMenu/client/gui/img/3.png";
+			document.getElementById('menu').style.display = 'none';
+			if(document.getElementById('menuBox').style.display == 'none')
+			{
+			document.getElementById('menuBox').style.display = 'block';
+			document.getElementById('p').style.display = 'none';
+			}
+		}
+		function FT(){
+			document.getElementById('boxMenuFond').src="http://asset/NicoMenu/client/gui/img/5.png";
+			document.getElementById('menu').style.display = 'none';
+			if (document.getElementById('teleport').style.display == 'none')
+			{
+			document.getElementById('teleport').style.display = 'block';
+			document.getElementById('p').style.display = 'none';
+			}
+		}
+		</script>
+	</body>
+</html>

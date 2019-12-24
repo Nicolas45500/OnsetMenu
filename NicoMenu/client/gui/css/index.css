@@ -1,0 +1,575 @@
+.boxMenuFond{
+	
+}
+.imgV{
+	position: absolute;
+	top: 65px; 
+	left: 405px;
+	width: 150px;
+	height: 150px;
+}
+.spawnV{
+	position: absolute;
+	top: 235px; 
+	left: 425px;
+}
+.listV{
+	position: absolute;
+	top: 282px; 
+	left: 474px;
+	height: 345px;
+}
+.listVColor{
+	position: absolute;
+	top: 282px; 
+	left: 338px;
+	height: 293px;
+	width: 120px;
+	overflow-x :hidden;
+}
+
+.ColorRvb{
+	text-align:center;
+	color:white;
+}
+.textV{
+	position: absolute;
+	top: 158px; 
+	left: 95px;
+	font-family: Arial;
+	font-size: 43px;
+	color:white;
+}
+.textV:hover{
+	top: 163px; 
+	left: 100px;
+	font-size: 39px;
+}
+.textPlayer{
+	position: absolute;
+	top: 109px; 
+	left: 104px;
+	font-family: Arial;
+	font-size: 43px;
+	color:white;
+
+}
+.textPlayer:hover{
+	top: 114px; 
+	left: 109px;
+	font-size: 39px;
+}
+.textTéléport{
+	position: absolute;
+	top: 249px; 
+	left: 86px;
+	font-family: Arial;
+	font-size: 43px;
+	color:white;
+}
+.textTéléport:hover{
+	top: 254px; 
+	left: 91px;
+	font-size: 39px;
+}
+.textWeapon{
+	position: absolute;
+	top: 202px; 
+	left: 86px;
+	font-family: Arial;
+	font-size: 43px;
+	color:white;
+}
+.textWeapon:hover{
+	top: 207px; 
+	left: 91px;
+	font-size: 39px;
+}
+.textAnimation{
+	position: absolute;
+	top: 299px; 
+	left: 64px;
+	font-family: Arial;
+	font-size: 43px;
+	color:white;
+}
+.textAnimation:hover{
+	top: 304px; 
+	left: 69px;
+	font-size: 39px;
+}
+.numberSize{
+	position: absolute;
+	top: 40px; 
+	left: 240px;
+	height: 20px;
+	width: 50px;
+}
+.textPlayerinvHeal{
+	position: absolute;
+	top: 12px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerinvHeal:hover{
+	position: absolute;
+	top: 13px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.invincible{
+	position: absolute;
+	top: 77px; 
+	left: 240px;
+	height: 20px;
+	width: 50px;
+}
+.textPlayerArmor{
+	position: absolute;
+	top: 50px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerArmor:hover{
+	position: absolute;
+	top: 51px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerHurt{
+	position: absolute;
+	top: 86px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerHurt:hover{
+	position: absolute;
+	top: 87px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerKill{
+	position: absolute;
+	top: 197px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerKill:hover{
+	position: absolute;
+	top: 198px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerArmorHurt{
+	position: absolute;
+	top: 123px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerArmorHurt:hover{
+	position: absolute;
+	top: 124px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textArmorRemove{
+	position: absolute;
+	top: 160px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textArmorRemove:hover{
+	position: absolute;
+	top: 161px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerSetVehicleDamage{
+	position: absolute;
+	top: 12px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerSetVehicleDamage:hover{
+	position: absolute;
+	top: 13px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerRepairVehicle{
+	position: absolute;
+	top: 50px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerRepairVehicle:hover{
+	position: absolute;
+	top: 51px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerDestroyVehicle{
+	position: absolute;
+	top: 86px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerDestroyVehicle:hover{
+	position: absolute;
+	top: 87px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerKillEngine{
+	position: absolute;
+	top: 123px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerKillEngine:hover{
+	position: absolute;
+	top: 124px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerReturVehicle{
+	position: absolute;
+	top: 197px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerReturVehicle:hover{
+	position: absolute;
+	top: 198px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerFixEngineVehicle{
+	position: absolute;
+	top: 160px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerFixEngineVehicle:hover{
+	position: absolute;
+	top: 161px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerSwichPlacee{
+	position: absolute;
+	top: 235px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerSwichPlacee:hover{
+	position: absolute;
+	top: 236px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerSetSpawn{
+	position: absolute;
+	top: 12px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerSetSpawn:hover{
+	position: absolute;
+	top: 13px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.textPlayerPointSpawn{
+	position: absolute;
+	top: 50px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.textPlayerPointSpawn:hover{
+	position: absolute;
+	top: 51px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.listT{
+	position: absolute;
+	top: 282px; 
+	left: 425px;
+	height: 345px;
+}
+.imgT{
+	position: absolute;
+	top: 65px; 
+	left: 405px;
+	width: 150px;
+	height: 150px;
+}
+.spawnT{
+	position: absolute;
+	top: 235px; 
+	left: 445px;
+}
+.listWeapon{
+	position: absolute;
+	top: 70px; 
+	left: 357px;
+}
+.Pistol01{
+	height: 100px;
+	width: 100px;
+}
+.Pistol02{
+	height: 100px;
+	width: 100px;
+}
+.Pistol03{
+	height: 100px;
+	width: 100px;
+}
+.Pistol04{
+	height: 100px;
+	width: 100px;
+}
+.Pistol05{
+	height: 100px;
+	width: 100px;
+}
+.Pistol06{
+	height: 100px;
+	width: 100px;
+}
+.Pistol07{
+	height: 100px;
+	width: 100px;
+}
+.Pistol08{
+	height: 100px;
+	width: 100px;
+}
+.Pistol09{
+	height: 100px;
+	width: 100px;
+}
+.Pistol010{
+	height: 100px;
+	width: 100px;
+}
+.Pistol011{
+	height: 100px;
+	width: 100px;
+}
+.Pistol12{
+	height: 100px;
+	width: 100px;
+}
+.Pistol13{
+	height: 100px;
+	width: 100px;
+}
+.Pistol14{
+	height: 100px;
+	width: 100px;
+}
+.Pistol15{
+	height: 100px;
+	width: 100px;
+}
+.Pistol16{
+	height: 100px;
+	width: 100px;
+}
+.Pistol17{
+	height: 100px;
+	width: 100px;
+}
+.Pistol18{
+	height: 100px;
+	width: 100px;
+}
+.Pistol19{
+	height: 100px;
+	width: 100px;
+}
+.AttachPlayerParachute{
+	position: absolute;
+	top: 12px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.AttachPlayerParachute:hover{
+	position: absolute;
+	top: 13px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.DeleteTear{
+	position: absolute;
+	top: 50px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.DeleteTear:hover{
+	position: absolute;
+	top: 51px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.foreground{
+	position: absolute;
+	top: 50px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.foreground:hover{
+	position: absolute;
+	top: 51px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+.listA{
+	position: absolute;
+	top: 85px; 
+	left: 56px;
+	height: 345px;
+}
+.Aclass{
+	text-align:center;
+}
+.ASTOP{
+	position: absolute;
+	top: 60px; 
+	left: 140px;
+}
+.credit1{
+	position: absolute;
+	top: 430px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 10px;
+	color:white;
+}
+.credit2{
+	position: absolute;
+	top: 440px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 10px;
+	color:white;
+}
+.selectPa{
+	-moz-user-select: none; /* Firefox */
+	 -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+	 -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+	 user-select: none; /* Propriété standard */
+}
+.into{
+	position: absolute;
+	top: 50px; 
+	left: 50px;
+	font-family: Arial;
+	font-size: 25px;
+	color:white;
+}
+.into:hover{
+	position: absolute;
+	top: 51px; 
+	left: 51px;
+	font-family: Arial;
+	font-size: 24px;
+	color:white;
+	cursor: pointer;
+}
+
+
+
